@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const mongoConfig_1 = __importDefault(require("./config/mongoConfig"));
+const index_1 = require("./config/index");
 const dotenv_1 = __importDefault(require("dotenv"));
 // Load environment variables from .env file
 dotenv_1.default.config();
@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 app.use(express_1.default.json());
 // Import and use routes here (e.g., app.use('/api/users', userRoutes);)
 // Connect to the database
-(0, mongoConfig_1.default)();
+(0, index_1.connectToDatabase)();
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
